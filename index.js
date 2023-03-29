@@ -1,27 +1,28 @@
+const searchLocationForm = document.querySelector('#searchLocationForm');
 const searchLocationInput = document.querySelector('.locationSearchInput');
 const searchLocationIcon = document.querySelector('#locationSearchIcon');
 
+const cityName = document.querySelector('#cityName');
+const temp = document.querySelector('#temp');
+
 const APIKey = "171073ee66f087671dbe9dfd93e6be69";
 
-let searchDetails = {
-    latitude: '',
-    longitude: '',
-    city: '',
-}
+let result; 
 
-const searchWeatherLocation = () => {
-    // const url = `http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=${APIKey}`
-    axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=54.5198883&lon=-6.0480218&appid=171073ee66f087671dbe9dfd93e6be69`).then((response) => {
-       console.log(response.data);
-     })
-     .catch((error) => console.error(error));
-   }
+   searchLocationForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${searchLocationInput.value}&limit=1&appid=${APIKey}`).then((response) => {
+        const data = response.data[0];
+        result = {name: data.name, country: data.country, latitude: data.lat, longitude: data.lon}
+     }).catch((error) => console.error(error));
 
-searchLocationInput.addEventListener('input', (event) => {
-    const searchValue = event.target.value;
-    searchWeatherLocation()
+     await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${result.latitude}&lon=${result.longitude}&appid=${APIKey}`).then((response) => {
+        const data = response.data;
+       cityName.innerHTML = result.name;
+     }).catch((error) => console.error(error));
 
-});
+     searchLocationInput.value = ''
+   })
 
 searchLocationIcon.addEventListener('click', () => {
     if (navigator.geolocation) {

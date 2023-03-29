@@ -13,9 +13,13 @@
 
 <body>
 
-        <form class="searchLocationContainer">
-        <input class="locationSearchInput" name="locationSearchInput" type="text" placeholder="Search Location" tabindex="1" />
-            <button type="submit" class="locationSearchBtn" tabindex="2"><i class="fa-solid fa-magnifying-glass locationSearchIcon"></i></button>
+        <form class="searchLocationContainer" id="searchLocationForm">
+            <input class="locationSearchInput" name="locationSearchInput" type="text" placeholder="Search Location" tabindex="1" />
+            
+            <button type="submit" class="locationSearchBtn" tabindex="2">
+                <i class="fa-solid fa-magnifying-glass locationSearchIcon"></i>
+            </button>
+            
             <i class="fa-solid fa-location-crosshairs locationSearchIcon" id="locationSearchIcon" tabindex="3"></i>
         </form>
 
@@ -23,11 +27,11 @@
         <div class="headerContainer">
         <div class="cityContainer" tabindex="3">
             <i class="fa-sharp fa-solid fa-location-dot"></i>
-            <h1>CITY</h1>
+            <h1 id="cityName">CITY</h1>
         </div>
  
         <div class="temperature" tabindex="4">
-            <p>27&#8451</p>
+            <span><span id="'temp">27</span>&#8451</span>
         </div>
         </div>
 
@@ -59,5 +63,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"
     integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 </html>
