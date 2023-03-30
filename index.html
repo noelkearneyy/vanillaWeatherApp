@@ -31,28 +31,39 @@
         </div>
  
         <div class="temperature" tabindex="4">
-            <span><span id="'temp">27</span>&#8451</span>
+            <span>
+                <span id="temp">27</span>&#8451
+            </span>
+            <span>
+                Feels: 
+                <span id="feelsTemp">27</span>&#8451
+            </span>
         </div>
         </div>
 
         <div class="weatherIconContainer" tabindex="5">
-            <i class="fa-solid fa-sun weatherIcon"></i>
-            <!-- <i class="fa-solid fa-clouds-sun"></i> -->
-            <!-- <i class="fa-solid fa-clouds"></i> -->
-            <!-- <i class="fa-solid fa-cloud-sun-rain weatherIcon"></i> -->
-            <!-- <i class="fa-solid fa-cloud-showers-heavy weatherIcon"></i> -->
-            <!-- <i class="fa-solid fa-cloud-snow"></i> -->
+            <img id="weatherIcon" class="weatherIcon" src="https://openweathermap.org/img/wn/10d@2x.png" />
+            <p id="weatherMain">Clouds</p>
+            <p id="weatherDescription"></p>
         </div>
 
         <div class="metricsContainer">
             <div class="metric" tabindex="6">
                 <i class="fa-solid fa-droplet"></i>
-                <p id="rainMetric">54%</p>
+                <p>HUMIDITY</p>
+                <p id="humidity">54%</p>
             </div>
 
             <div class="metric" tabindex="7">
                 <i class="fa-solid fa-wind"></i>
-                <p id="windMetric">4.4mps</p>
+                <p>WIND</p>
+                <p id="windSpeed">4.4mps</p>
+            </div>
+
+            <div class="metric" tabindex="8">
+                <i class="fa-brands fa-cloudscale"></i>
+                <p>AIR PRESSURE</p>
+                <p id="airPressure">4hPa</p>
             </div>
         </div>
     </div>
