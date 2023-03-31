@@ -1,6 +1,9 @@
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
+env:
+  API_KEY: ${{ secrets.API_KEY }}
+
 on:
   # Runs on pushes targeting the default branch
   push:
