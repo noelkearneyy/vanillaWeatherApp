@@ -18,12 +18,12 @@ const humidityField = document.querySelector('#humidity');
 const windSpeedField = document.querySelector('#windSpeed');
 const airPressureField = document.querySelector('#airPressure');
 
-const APIKey = "171073ee66f087671dbe9dfd93e6be69";
+// const APIKey = "171073ee66f087671dbe9dfd93e6be69";
 
 // fetch weather data based on latitude and longitude of location and return data in object format
 const fetchLocationWeatherData = async (latitude, longitude) => {
     let result;
-    await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${APIKey}`).then((response) => {
+    await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_Key}`).then((response) => {
         result = response.data;
     }).catch((error) => {
         loader.style.display = 'none';
@@ -34,7 +34,7 @@ const fetchLocationWeatherData = async (latitude, longitude) => {
 
 const fetchLocationData = async (location) => {
     let result;
-    await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${APIKey}`).then((response) => {
+    await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${API_Key}`).then((response) => {
         const data = response.data[0];
         result = { name: data.name, country: data.country, latitude: data.lat, longitude: data.lon };
     }).catch((error) => {
