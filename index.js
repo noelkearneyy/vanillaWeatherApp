@@ -18,7 +18,7 @@ const humidityField = document.querySelector('#humidity');
 const windSpeedField = document.querySelector('#windSpeed');
 const airPressureField = document.querySelector('#airPressure');
 
-const API_Key = process.env.API_Key;
+const API_Key = process.env.API_KEY;
 
 // fetch weather data based on latitude and longitude of location and return data in object format
 const fetchLocationWeatherData = async (latitude, longitude) => {
